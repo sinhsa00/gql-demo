@@ -1,0 +1,10 @@
+input CustomerInput {
+    name: String
+    address: String
+    #accountInput: AccountInput
+}
+
+input AccountInput {
+    customerInput: CustomerInput
+    active:Boolean
+}

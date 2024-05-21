@@ -1,0 +1,4 @@
+type Query {
+    customers(customerInput: CustomerInput): [Customer]
+    customerById(customerId: String): Customer
+}

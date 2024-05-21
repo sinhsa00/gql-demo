@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <property name="account_tableName" value="account"/>
+
+    <changeSet id="create_table" author="Satyajit Sinha">
+        <preConditions onFail="WARN">
+            <not>
+                <tableExists tableName="${account_tableName}"/>
+            </not>
+        </preConditions>
+        <createTable tableName="${account_tableName}">
+            <column name="id" type="varchar(50)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="varchar(50)">
+                <constraints foreignKeyName="true"/>
+            </column>
+            <column name="balance" type="double" defaultValue="0.0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="active" type="bit(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bank_account_type" type="enum('SAVINGS','CURRENT')">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet  author="Satyajit Sinha"  id="add ForeignKeyConstraint">
+        <addForeignKeyConstraint  baseColumnNames="customer_id"
+                                  baseTableName="${account_tableName}"
+                                  constraintName="customer_id_fk"
+                                  onDelete="CASCADE"
+                                  onUpdate="RESTRICT"
+                                  referencedColumnNames="id"
+                                  referencedTableName="${customer_tableName}"
+                                  validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>
