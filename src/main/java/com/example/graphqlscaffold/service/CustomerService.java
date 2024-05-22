@@ -75,11 +75,13 @@ public class CustomerService {
             graphOut.setName(customer.getName());
 
             List<AccountReadEntity> accountReadEntities = accountGroup.get(cid);
+
+            List<Account> accountList = new ArrayList<>();
             if (null != accountReadEntities) {
-                List<Account> accountList = accountReadEntities.stream().map(CustomerMapper::mapToAccount).collect(Collectors.toList());
-                graphOut.setAccounts(accountList);
-                outs.add(graphOut);
+                accountList = accountReadEntities.stream().map(CustomerMapper::mapToAccount).collect(Collectors.toList());
             }
+            graphOut.setAccounts(accountList);
+            outs.add(graphOut);
         }
 
         return outs;
