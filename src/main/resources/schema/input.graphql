@@ -1,10 +1,10 @@
 input CustomerInput {
     name: String
     address: String
-    #accountInput: AccountInput
+    accountInput: AccountInput
 }
 
 input AccountInput {
-    customerInput: CustomerInput
-    active:Boolean
+    active: Boolean
+    bankAccountType: AccountType
 }

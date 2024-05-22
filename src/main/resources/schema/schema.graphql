@@ -16,3 +16,10 @@ enum AccountType {
     SAVINGS,
     CURRENT
 }
+
+type GraphOut {
+    id: ID!
+    name: String!
+    address: String!
+    accounts: [Account]
+}

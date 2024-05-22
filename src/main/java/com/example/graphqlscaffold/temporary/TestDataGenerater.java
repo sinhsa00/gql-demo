@@ -1,33 +1,36 @@
 package com.example.graphqlscaffold.temporary;
 
-import com.example.graphqlscaffold.entity.AccountEntity;
 import com.example.graphqlscaffold.entity.BankAccountType;
-import com.example.graphqlscaffold.entity.CustomerEntity;
+import com.example.graphqlscaffold.entity.write.AccountWriteEntity;
+import com.example.graphqlscaffold.entity.write.CustomerWriteEntity;
 import lombok.AllArgsConstructor;
 import net.datafaker.Faker;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
 public class TestDataGenerater {
     private Faker faker;
-    public List<CustomerEntity> generateTestData(){
-        var customerList = new ArrayList<CustomerEntity>();
+    public List<CustomerWriteEntity> generateTestData(){
+        var customerList = new ArrayList<CustomerWriteEntity>();
         for(int i=0; i<10; i++){
 
             int numOfAccount = faker.random().nextInt(1,3);
-            var accounts = new ArrayList<AccountEntity>();
+            var accounts = new ArrayList<AccountWriteEntity>();
             for(int j=0;j<numOfAccount;j++) {
-                AccountEntity a = new AccountEntity();
+                AccountWriteEntity a = new AccountWriteEntity();
                 a.setId(UUID.randomUUID().toString());
                 a.setBalance(faker.random().nextDouble(5000, 10000));
                 a.setBankAccountType(randomAccountType());
                 a.setActive(faker.bool().bool());
                 accounts.add(a);
             }
-            CustomerEntity c = new CustomerEntity();
+            CustomerWriteEntity c = new CustomerWriteEntity();
             c.setId(UUID.randomUUID().toString());
             c.setName(faker.name().name());
             c.setAddress(faker.address().streetAddress(false));
