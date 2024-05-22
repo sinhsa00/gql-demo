@@ -18,7 +18,7 @@ public class CustomerWriteEntity {
     private String name;
     private String address;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name ="customer_id",referencedColumnName = "id")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private List<AccountWriteEntity> accountEntities;
 }

@@ -23,19 +23,19 @@ public class webapi {
     private AccountRepository accountRepository;
 
     @GetMapping
-    public void createCustomer(){
-        List<CustomerWriteEntity> data =  dataGenerater.generateTestData();
+    public void createCustomer() {
+        List<CustomerWriteEntity> data = dataGenerater.generateTestData();
         customerService.addMultipleCustomer(data);
     }
 
     @GetMapping("/acc")
-    public List<AccountWriteEntity> getacc(){
+    public List<AccountWriteEntity> getacc() {
         return accountRepository.findAll();
     }
 
 
     @GetMapping("/{id}")
-    public CustomerWriteEntity getCustomer(@PathVariable String id){
+    public CustomerWriteEntity getCustomer(@PathVariable String id) {
         return customerService.getCustomer(id);
     }
 }

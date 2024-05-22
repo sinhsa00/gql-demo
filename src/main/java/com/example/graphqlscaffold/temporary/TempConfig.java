@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TempConfig {
     @Bean
-    public Faker getFaker(){
+    public Faker getFaker() {
         return new Faker();
     }
 }

@@ -16,13 +16,14 @@ import java.util.UUID;
 @AllArgsConstructor
 public class TestDataGenerater {
     private Faker faker;
-    public List<CustomerWriteEntity> generateTestData(){
-        var customerList = new ArrayList<CustomerWriteEntity>();
-        for(int i=0; i<10; i++){
 
-            int numOfAccount = faker.random().nextInt(1,3);
+    public List<CustomerWriteEntity> generateTestData() {
+        var customerList = new ArrayList<CustomerWriteEntity>();
+        for (int i = 0; i < 10; i++) {
+
+            int numOfAccount = faker.random().nextInt(1, 3);
             var accounts = new ArrayList<AccountWriteEntity>();
-            for(int j=0;j<numOfAccount;j++) {
+            for (int j = 0; j < numOfAccount; j++) {
                 AccountWriteEntity a = new AccountWriteEntity();
                 a.setId(UUID.randomUUID().toString());
                 a.setBalance(faker.random().nextDouble(5000, 10000));

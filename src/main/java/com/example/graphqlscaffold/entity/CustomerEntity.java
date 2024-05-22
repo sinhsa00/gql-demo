@@ -18,7 +18,7 @@ public class CustomerEntity {
     private String name;
     private String address;
     @OneToMany(targetEntity = AccountEntity.class, cascade = CascadeType.ALL)
-    @JoinColumn(name ="customer_id",referencedColumnName = "id")
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     //@OneToMany(mappedBy = "customer", targetEntity = AccountEntity.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<AccountEntity> accountEntities;
 }

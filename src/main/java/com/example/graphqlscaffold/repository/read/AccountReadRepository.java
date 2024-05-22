@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AccountReadRepository extends JpaRepository<AccountReadEntity,String>,
+public interface AccountReadRepository extends JpaRepository<AccountReadEntity, String>,
         JpaSpecificationExecutor<AccountReadEntity> {
 }

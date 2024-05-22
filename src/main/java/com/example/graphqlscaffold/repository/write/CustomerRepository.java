@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CustomerRepository extends JpaRepository<CustomerWriteEntity,String>,
+public interface CustomerRepository extends JpaRepository<CustomerWriteEntity, String>,
         JpaSpecificationExecutor<CustomerWriteEntity> {
 }

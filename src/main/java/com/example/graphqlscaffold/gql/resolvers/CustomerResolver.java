@@ -17,6 +17,7 @@ import java.util.Optional;
 @DgsComponent
 public class CustomerResolver {
     private CustomerService service;
+
     @DgsData(
             parentType = DgsConstants.QUERY_TYPE,
             field = DgsConstants.QUERY.Customers
@@ -25,6 +26,6 @@ public class CustomerResolver {
     public List<GraphOut> getCustomers(DataFetchingEnvironment dataFetchingEnvironment
             , @InputArgument Optional<CustomerInput> customerInput) {
         List<GraphOut> allCustomer = service.getAllCustomer(customerInput);
-     return allCustomer;
+        return allCustomer;
     }
 }
